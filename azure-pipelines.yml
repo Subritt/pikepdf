@@ -65,7 +65,7 @@ stages:
             LDFLAGS="-L/usr/local/lib"
           cibw_build: "*-manylinux_x86_64"
           cibw_test_command: "pytest -nauto --junitxml=/host/$(System.DefaultWorkingDirectory)/test.xml {project}/tests"
-          cibw_before_all: source linux-build-deps.bash
+          cibw_before_all: source azure-pipelines/linux-build-deps.bash
         steps:
           - task: UsePythonVersion@0
           - bash: source azure-pipelines/linux-download-deps.bash
@@ -88,7 +88,7 @@ stages:
             LDFLAGS="-L/usr/local/lib"
           cibw_build: "*-manylinux_i686"
           cibw_test_command: "pytest -nauto --junitxml=/host/$(System.DefaultWorkingDirectory)/test.xml {project}/tests"
-          cibw_before_all: source linux-build-deps.bash
+          cibw_before_all: source azure-pipelines/linux-build-deps.bash
         steps:
           - task: UsePythonVersion@0
           - bash: source azure-pipelines/linux-download-deps.bash
